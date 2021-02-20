@@ -14,6 +14,7 @@ import DailyIframe from '@daily-co/daily-js';
 import { logDailyEvent } from '../../logUtils';
 import ScrollReveal from '../utils/ScrollReveal';
 import ReactGA from 'react-ga';
+import '../../assets/scss/style.scss';
 
 
 const STATE_IDLE = 'STATE_IDLE';
@@ -228,11 +229,16 @@ const  App = () => {
   }, [location]);
   return (
     <div className="app">
+      
       <ScrollReveal
       ref={childRef}
       children={() => (
         <Switch>
-          <AppRoute exact path="/" component={Home} layout={LayoutDefault} />
+          <AppRoute exact path="/" 
+          component={()=>{
+             return <Home showCall={showCall} createCall={createCall} startJoiningCall={startJoiningCall} enableStartButton={enableStartButton}/>
+          }}
+          />
         </Switch>
       )} />
 
@@ -248,14 +254,10 @@ const  App = () => {
             onClickLeaveCall={startLeavingCall}
           />
         </CallObjectContext.Provider>
-      ) : (
-        <StartButton
-          disabled={!enableStartButton}
-          onClick={() => {
-            createCall().then((url) => startJoiningCall(url));
-          }}
-        />
-      )}
+      ):(
+        <div></div>
+      )
+    }
     </div>
   );
 }

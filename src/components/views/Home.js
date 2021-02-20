@@ -6,15 +6,19 @@ import FeaturesSplit from '../layout_components/sections/FeaturesSplit';
 import Testimonial from '../layout_components/sections/Testimonial';
 import Cta from '../layout_components/sections/Cta';
 
-const Home = () => {
+const Home = (props) => {
 
   return (
     <>
-      <Hero className="illustration-section-01" />
+      {!props.showCall ? (
+        <div>
+      <Hero className="illustration-section-01" props={props}/>
       <FeaturesTiles />
       <FeaturesSplit invertMobile topDivider imageFill className="illustration-section-02" />
       <Testimonial topDivider />
       <Cta split />
+      </div>
+      ):(<div></div>)}
     </>
   );
 }

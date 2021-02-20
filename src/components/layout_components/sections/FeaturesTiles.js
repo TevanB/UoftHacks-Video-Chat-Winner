@@ -44,8 +44,8 @@ const FeaturesTiles = ({
   );
 
   const sectionHeader = {
-    title: 'Build up the whole picture',
-    paragraph: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum — semper quis lectus nulla at volutpat diam ut venenatis.'
+    title: 'Two Rooms and a BOOM',
+    paragraph: 'Get chosen as the president or the traitor and try to beat the other team, if you can identify them!'
   };
 
   return (
@@ -53,8 +53,8 @@ const FeaturesTiles = ({
       {...props}
       className={outerClasses}
     >
-      <div className="container">
-        <div className={innerClasses}>
+      <div className="container mt-5">
+        <div className={innerClasses+"mt-5"}>
           <SectionHeader data={sectionHeader} className="center-content" />
           <div className={tilesClasses}>
 

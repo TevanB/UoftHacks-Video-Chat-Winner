@@ -14,7 +14,7 @@ const AppRoute = ({
       {...rest}
       render={props => (
         <Layout>
-          <Component {...props} />
+          <Component {...props} startJoiningCall={props.startJoiningCall} createCall={props.createCall} enableStartButton={props.enableStartButton} showCall={props.showCall}/>
         </Layout>
       )} />
   );

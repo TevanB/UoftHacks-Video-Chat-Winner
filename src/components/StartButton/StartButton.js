@@ -9,11 +9,11 @@ import './StartButton.css';
 export default function StartButton(props) {
   return (
     <button
-      className="start-button"
+      className="button bg-dark text-light"
       disabled={props.disabled}
       onClick={props.onClick}
     >
-      Click to start a call
+      Click to start a game
     </button>
   );
 }
