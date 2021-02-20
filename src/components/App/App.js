@@ -1,14 +1,19 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import Call from '../Call/Call';
 import StartButton from '../StartButton/StartButton';
 import api from '../../api';
+import { useLocation, Switch } from 'react-router-dom';
+import AppRoute from '../utils/AppRoute';
+import Home from '../views/Home';
+import LayoutDefault from '../layouts/LayoutDefault';
 import './App.css';
 import Tray from '../Tray/Tray';
 import CallObjectContext from '../../CallObjectContext';
 import { roomUrlFromPageUrl, pageUrlFromRoomUrl } from '../../urlUtils';
 import DailyIframe from '@daily-co/daily-js';
 import { logDailyEvent } from '../../logUtils';
-import ScrollReveal from './utils/ScrollReveal';
+import ScrollReveal from '../utils/ScrollReveal';
+import ReactGA from 'react-ga';
 
 
 const STATE_IDLE = 'STATE_IDLE';
@@ -17,8 +22,11 @@ const STATE_JOINING = 'STATE_JOINING';
 const STATE_JOINED = 'STATE_JOINED';
 const STATE_LEAVING = 'STATE_LEAVING';
 const STATE_ERROR = 'STATE_ERROR';
-
-export default function App() {
+const trackPage = page => {
+  ReactGA.set({ page });
+  ReactGA.pageview(page);
+};
+const  App = () => {
   const [appState, setAppState] = useState(STATE_IDLE);
   const [roomUrl, setRoomUrl] = useState(null);
   const [callObject, setCallObject] = useState(null);
@@ -174,6 +182,8 @@ export default function App() {
     };
   }, [callObject]);
 
+ 
+
   /**
    * Show the call UI if we're either joining, already joined, or are showing
    * an error.
@@ -209,6 +219,13 @@ export default function App() {
 
   const childRef = useRef();
   let location = useLocation();
+  useEffect(() => {
+    const page = location.pathname;
+    document.body.classList.add('is-loaded')
+    childRef.current.init();
+    trackPage(page);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location]);
   return (
     <div className="app">
       <ScrollReveal
@@ -242,3 +259,4 @@ export default function App() {
     </div>
   );
 }
+export default App;
