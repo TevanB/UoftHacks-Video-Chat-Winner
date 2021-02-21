@@ -1,8 +1,9 @@
 const express = require('express')
 const fetch = require('node-fetch')
+const cors = require('cors')
 const app = express()
 const port = process.env.PORT
-
+app.use(cors())
 app.get('/createRoom', (req, res) => {
   const options = {
     method: 'POST',
