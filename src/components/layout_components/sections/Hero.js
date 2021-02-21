@@ -66,7 +66,7 @@ const Hero = ({
             </h1>
             <div className="container-xs">
               <p className="m-0 mb-5 reveal-from-bottom" data-reveal-delay="400">
-                Bluff.space - Can you out-bluff your friends on video?
+                Bestdomainnamegetsfree.tech
                 </p>
               <div className="reveal-from-bottom" data-reveal-delay="600">
                 <ButtonGroup>

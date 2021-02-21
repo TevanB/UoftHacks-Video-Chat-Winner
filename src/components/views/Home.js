@@ -13,10 +13,8 @@ const Home = (props) => {
       {!props.showCall ? (
         <div>
       <Hero className="illustration-section-01" props={props}/>
-      <FeaturesTiles />
-      <FeaturesSplit invertMobile topDivider imageFill className="illustration-section-02" />
-      <Testimonial topDivider />
-      <Cta split />
+
+
       </div>
       ):(<div></div>)}
     </>
