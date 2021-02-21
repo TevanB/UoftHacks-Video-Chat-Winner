@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const newRoomEndpoint =
   `${window.location.origin}/api/rooms`;
 
@@ -13,7 +15,13 @@ const newRoomEndpoint =
  */
 async function createRoom() {
 
-  fetch('/createRoom')
+  let result = {url: ''};
+    await axios.get('/createRoom').then((data)=>{
+      console.log(data.data);
+      result.url = data.data;
+      //return {url: data.data};
+    })
+    return result;
 
 
   /*const exp = Math.round(Date.now() / 1000) + 60 * 30;
