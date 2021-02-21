@@ -25,11 +25,9 @@
   "scripts": {
     "dev": "concurrently \"npm run server\" \"PORT=3002 react-scripts start\"",
     "server": "cd server && node server.js",
-    "build": "react-scripts build",
     "netlify-build": "sed -i s/DAILY_API_KEY_PLACEHOLDER/${DAILY_API_KEY}/g netlify.toml && npm run build",
     "start": "npm run server",
-    "eject": "react-scripts eject",
-    "heroku-postbuild":"npm install"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
