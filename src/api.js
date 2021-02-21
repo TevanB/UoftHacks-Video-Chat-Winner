@@ -16,7 +16,7 @@ const newRoomEndpoint =
 async function createRoom() {
 
   let result = {url: ''};
-    await axios.get('/createRoom').then((data)=>{
+    await axios.get('https://uoft-hacks-server.herokuapp.com/createRoom').then((data)=>{
       console.log(data.data);
       result.url = data.data;
       //return {url: data.data};
