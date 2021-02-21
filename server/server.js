@@ -24,6 +24,9 @@ app.get('/createRoom', (req, res) => {
   .catch(err => console.error(err));
   
 })
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+  })
 const config = {
     user: "maxroach",
     password: process.env.DB_PASS || "uoftuoftuoftuoft",
@@ -76,6 +79,3 @@ pool.connect(function (err, client, done) {
         });
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
