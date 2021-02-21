@@ -13,13 +13,16 @@ const newRoomEndpoint =
  */
 async function createRoom() {
 
-  const exp = Math.round(Date.now() / 1000) + 60 * 30;
+  fetch('/createRoom')
+
+
+  /*const exp = Math.round(Date.now() / 1000) + 60 * 30;
   const options = {
     properties: {
       exp: exp,
     },
   };
-  /*let response = await fetch(newRoomEndpoint, {
+  let response = await fetch(newRoomEndpoint, {
     method: "POST",
     body: JSON.stringify(options),
     mode: 'cors',
@@ -28,7 +31,7 @@ async function createRoom() {
   //return room;
 
   // Comment out the above and uncomment the below, using your own URL
-  return { url: "https://uofthacks2021.daily.co/uofthacks2021" };
+  //return { url: "https://uofthacks2021.daily.co/uofthacks2021" };
 }
 
 export default { createRoom };
